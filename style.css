@@ -240,3 +240,14 @@ footer {
         max-width: 100%;
     }
 }
+.icon {
+    width: 30px;
+    /* Adjust size as needed */
+    height: 20px;
+    /* Adjust size as needed */
+    margin-right: 8px;
+    /* Space between icon and text */
+    vertical-align: middle;
+    /* Aligns icon with text */
+    margin-left: 4px;
+}

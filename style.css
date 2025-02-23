@@ -1,0 +1,242 @@
+/* Dark Theme CSS Styles */
+:root {
+    --primary-color: #bb86fc;
+    --secondary-color: #3700b3;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --font-family: 'Roboto', sans-serif;
+    --font-family-heading: 'Montserrat', sans-serif;
+    --card-background: #1e1e1e;
+    --nav-background: #1f1f1f;
+    --hover-color: #512da8;
+}
+
+/* General Styles */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Top Ribbon */
+.top-ribbon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--nav-background);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-ribbon .logo {
+    font-family: var(--font-family-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.top-ribbon .quick-access {
+    display: flex;
+    gap: 15px;
+}
+
+.top-ribbon .quick-access a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.top-ribbon .quick-access a:hover {
+    color: var(--primary-color);
+}
+
+.top-ribbon .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: var(--nav-background);
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-header .logo {
+    font-family: var(--font-family-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sidebar-header .close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-links li a {
+    color: #fff;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.sidebar-links li a:hover {
+    color: var(--primary-color);
+}
+
+/* Search Bar */
+.search-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#searchInput::placeholder {
+    color: #ccc;
+}
+
+/* Content Sections */
+.content-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-family: var(--font-family-heading);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.card p {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #333, #1f1f1f);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-ribbon .quick-access {
+        display: none;
+    }
+
+    .top-ribbon .menu-btn {
+        display: block;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+}

@@ -1,7 +1,7 @@
 /* Dark Theme CSS Styles */
 :root {
-    --primary-color: #bb86fc;
-    --secondary-color: #3700b3;
+    --primary-color: #617bff;
+    --secondary-color: #309b8e;
     --background-color: #121212;
     --text-color: #e0e0e0;
     --font-family: 'Roboto', sans-serif;
@@ -159,7 +159,16 @@ a {
     font-family: var(--font-family-heading);
     font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--primary-color);
+    background: linear-gradient(90deg, #03ff2d, #2df300);
+    /* Gradient colors */
+    -webkit-background-clip: text;
+    /* Clip background to text */
+    -webkit-text-fill-color: transparent;
+    /* Make text transparent */
+    background-clip: text;
+    /* Standard property */
+    text-fill-color: transparent;
+    /* Standard property */
 }
 
 .card-container {
@@ -240,6 +249,7 @@ footer {
         max-width: 100%;
     }
 }
+
 .icon {
     width: 30px;
     /* Adjust size as needed */

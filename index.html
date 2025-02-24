@@ -21,7 +21,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
+
 <body>
+    <div class="loading-screen" id="loadingScreen">
+        <img src="batman.png" alt="Batman Logo" class="batman-loader">
+    </div>
+    <body>
     <!-- Top Ribbon -->
     <div class="top-ribbon">
         <div class="logo" style="color: goldenrod;">PirateHive-β</div>
@@ -214,6 +220,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 PirateHive - All rights reserved.</p>
+        <p class="batman-easter-egg">The Dark Knight watches over this site.</p>
     </footer>
 
     <!-- JavaScript -->
@@ -245,6 +252,18 @@
                 });
             });
         }
+
+        window.addEventListener("load", function () {
+            const loadingScreen = document.getElementById("loadingScreen");
+            loadingScreen.style.opacity = "0";
+            setTimeout(() => {
+                loadingScreen.style.display = "none";
+            }, 500);
+        });
+        console.log("%c🦇 I'm Batman. 🦇", "font-size: 20px; color: #000; background: #FFD700; padding: 10px; border-radius: 5px;");
+    console.log("%cWelcome to PirateHive, where the Dark Knight keeps watch.", "font-size: 14px; color: #2c3e50;");
+    console.log("%cRemember: 'It's not who I am underneath, but what I do that defines me.'", "font-size: 14px; color: #2c3e50; font-style: italic;");
+  
     </script>
 </body>
 

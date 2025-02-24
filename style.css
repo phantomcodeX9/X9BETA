@@ -1,6 +1,6 @@
 /* Dark Theme CSS Styles */
 :root {
-    --primary-color: #617bff;
+    --primary-color: #60d1c4;
     --secondary-color: #309b8e;
     --background-color: #121212;
     --text-color: #e0e0e0;
@@ -11,8 +11,8 @@
     --hover-color: #512da8;
 }
 .card:hover {
-    border: 2px solid #FFD700; /* Golden yellow */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #309b8e; /* Teal border */
+    box-shadow: 0 0 10px rgba(48, 155, 142, 0.5); /* Teal shadow */
 }
 
 .card:hover::after {
@@ -256,14 +256,14 @@ a {
 .card-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--secondary-color);
+    background: linear-gradient(90deg, #617bff, #309b8e); /* Blue to Teal gradient */
     color: #fff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .card-button:hover {
-    background-color: var(--hover-color);
+    background: linear-gradient(90deg, #309b8e, #617bff); /* Teal to Blue gradient on hover */
 }
 
 /* Footer */

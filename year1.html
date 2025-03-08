@@ -11,18 +11,20 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            line-height: 1.6;
         }
 
         header {
-            background: #333;
-            color: #fff;
+            background: #1f1f1f; /* Darker header */
+            color: #ffffff;
             padding: 15px 0;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
@@ -33,6 +35,7 @@
         header p {
             margin: 5px 0 0;
             font-size: 1rem;
+            color: #b0b0b0; /* Lighter subtext */
         }
 
         .search-filter {
@@ -41,8 +44,8 @@
             align-items: center;
             gap: 10px;
             padding: 15px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: #1f1f1f; /* Dark background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 80px;
             z-index: 1000;
@@ -53,9 +56,19 @@
             padding: 10px;
             width: 90%;
             max-width: 500px;
-            border: 1px solid #ddd;
+            border: 1px solid #333; /* Darker border */
             border-radius: 5px;
             font-size: 1rem;
+            background: #2d2d2d; /* Dark input background */
+            color: #e0e0e0; /* Light text */
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-filter input:focus,
+        .search-filter select:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
         }
 
         .container {
@@ -66,11 +79,17 @@
         }
 
         .semester {
-            background: #fff;
-            border: 1px solid #ddd;
+            background: #1f1f1f; /* Dark background */
+            border: 1px solid #333; /* Darker border */
             border-radius: 5px;
             padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .semester:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .semester h2 {
@@ -81,6 +100,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            transition: color 0.3s;
         }
 
         .semester h2::after {
@@ -105,21 +125,27 @@
             margin: 10px 0;
             padding: 10px;
             border-left: 4px solid #007BFF;
-            background: #f9f9f9;
+            background: #2d2d2d; /* Dark card background */
+            transition: background 0.3s;
+        }
+
+        .card:hover {
+            background: #3d3d3d; /* Slightly lighter on hover */
         }
 
         .card h3 {
             margin: 0;
             font-size: 1.1rem;
-            color: #333;
+            color: #e0e0e0; /* Light text */
         }
 
         .card a {
             display: block;
             margin: 5px 0;
-            color: #333;
+            color: #e0e0e0; /* Light text */
             text-decoration: none;
             font-size: 0.95rem;
+            transition: color 0.3s;
         }
 
         .card a:hover {
@@ -128,11 +154,12 @@
         }
 
         footer {
-            background: #333;
-            color: #fff;
+            background: #1f1f1f; /* Dark footer */
+            color: #b0b0b0; /* Lighter text */
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
         }
 
         footer p {
@@ -142,19 +169,24 @@
 
         /* Report Section - Unique Design */
         .report-section {
-            background: #fff;
-            border: 1px solid #ddd;
+            background: #1f1f1f; /* Dark background */
+            border: 1px solid #333; /* Darker border */
             border-radius: 10px;
             margin: 20px;
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .report-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
 
         .report-section h2 {
             margin: 0;
             font-size: 1.8rem;
-            color: #28a745;
-            /* Green color for distinction */
+            color: #28a745; /* Green color for distinction */
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -163,7 +195,6 @@
 
         .report-section h2::before {
             content: "📩";
-            /* Envelope icon */
             font-size: 1.5rem;
         }
 
@@ -188,24 +219,33 @@
         .report-form p {
             margin: 0 0 20px;
             font-size: 1rem;
-            color: #555;
+            color: #b0b0b0; /* Lighter text */
         }
 
         .report-form label {
             display: block;
             margin: 10px 0 5px;
             font-weight: bold;
-            color: #333;
+            color: #e0e0e0; /* Light text */
         }
 
         .report-form input,
         .report-form textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #333; /* Darker border */
             border-radius: 5px;
             font-size: 1rem;
-            margin-bottom: 10px;
+            background: #2d2d2d; /* Dark input background */
+            color: #e0e0e0; /* Light text */
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .report-form input:focus,
+        .report-form textarea:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+            outline: none;
         }
 
         .report-form textarea {
@@ -214,8 +254,7 @@
         }
 
         .report-form button {
-            background: #28a745;
-            /* Green color for distinction */
+            background: #28a745; /* Green color for distinction */
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -227,8 +266,7 @@
         }
 
         .report-form button:hover {
-            background: #218838;
-            /* Darker green on hover */
+            background: #218838; /* Darker green on hover */
         }
 
         @media (min-width: 768px) {

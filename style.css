@@ -10,18 +10,23 @@
     --nav-background: #1f1f1f;
     --hover-color: #512da8;
 }
+
 .card:hover {
-    border: 2px solid #309b8e; /* Teal border */
-    box-shadow: 0 0 10px rgba(48, 155, 142, 0.5); /* Teal shadow */
+    border: 2px solid #309b8e;
+    /* Teal border */
+    box-shadow: 0 0 10px rgba(48, 155, 142, 0.5);
+    /* Teal shadow */
 }
 
 .card:hover::after {
-    content: "🦇"; /* Batman symbol */
+    content: "🦇";
+    /* Batman symbol */
     position: absolute;
     bottom: 10px;
     right: 10px;
     font-size: 1.5em;
 }
+
 /* Loading Screen Styles */
 .loading-screen {
     position: fixed;
@@ -46,8 +51,13 @@
 
 /* Spin Animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -68,9 +78,11 @@ a {
 }
 
 /* Top Ribbon */
+/* Top Ribbon */
 .top-ribbon {
     display: flex;
     justify-content: space-between;
+    /* Space between logo, quick-access, and menu-container */
     align-items: center;
     padding: 10px 20px;
     background-color: var(--nav-background);
@@ -79,15 +91,23 @@ a {
     z-index: 1000;
 }
 
+/* Logo */
 .top-ribbon .logo {
     font-family: var(--font-family-heading);
     font-size: 1.5rem;
     font-weight: bold;
+    margin-right: auto;
+    /* Push logo to the left */
 }
 
+/* Quick Access Links */
 .top-ribbon .quick-access {
     display: flex;
     gap: 15px;
+    margin-left: auto;
+    /* Push quick-access to the right */
+    margin-right: 20px;
+    /* Add some spacing between quick-access and menu-container */
 }
 
 .top-ribbon .quick-access a {
@@ -100,13 +120,34 @@ a {
     color: var(--primary-color);
 }
 
+/* Menu Container (Caution Symbol and Menu Button) */
+.top-ribbon .menu-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .top-ribbon .menu-btn {
     display: none;
+    /* Hide by default */
     background: none;
     border: none;
-    color: #fff;
+    color: #54ff04;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+/* Show Menu Button only in Mobile View */
+@media (max-width: 768px) {
+    .top-ribbon .quick-access {
+        display: none;
+        /* Hide quick access links in mobile view */
+    }
+
+    .top-ribbon .menu-btn {
+        display: block;
+        /* Show menu button in mobile view */
+    }
 }
 
 /* Sidebar */
@@ -256,24 +297,19 @@ a {
 .card-button {
     display: inline-block;
     padding: 10px 20px;
-    background: linear-gradient(90deg, #617bff, #309b8e); /* Blue to Teal gradient */
+    background: linear-gradient(90deg, #617bff, #309b8e);
+    /* Blue to Teal gradient */
     color: #fff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .card-button:hover {
-    background: linear-gradient(90deg, #309b8e, #617bff); /* Teal to Blue gradient on hover */
+    background: linear-gradient(90deg, #309b8e, #617bff);
+    /* Teal to Blue gradient on hover */
 }
 
-/* Footer */
-footer {
-    background: linear-gradient(to right, #333, #1f1f1f);
-    color: #fff;
-    text-align: center;
-    padding: 5px;
-    position: relative;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -291,17 +327,18 @@ footer {
     }
 }
 
+/* Style for the "soon" GIF */
 .icon {
-    width: 30px;
-    /* Adjust size as needed */
-    height: 20px;
-    /* Adjust size as needed */
-    margin-right: 8px;
-    /* Space between icon and text */
+    width: 16px;
+    /* Very small size */
+    height: 16px;
+    /* Very small size */
     vertical-align: middle;
-    /* Aligns icon with text */
+    /* Align with text */
     margin-left: 4px;
+    /* Add some spacing */
 }
+
 .batman-easter-egg {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -313,4 +350,222 @@ footer {
 
 footer:hover .batman-easter-egg {
     opacity: 1;
+}
+
+/* Add this to your CSS */
+.logo:hover::after {
+    content: "Hello Pirate👋🏻";
+    position: absolute;
+    background: var(--card-background);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+/* Add this to your CSS */
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 3000;
+}
+
+#backToTop:hover {
+    background-color: var(--hover-color);
+}
+
+/* Quick Access Buttons */
+/* Quick Access Buttons */
+.quick-access-buttons {
+    display: none;
+    /* Hide by default */
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+/* Show Quick Access Buttons only in Mobile View */
+@media (max-width: 768px) {
+    .quick-access-buttons {
+        display: flex;
+        /* Show in mobile view */
+    }
+}
+
+
+.quick-access-buttons button {
+    background-color: #309b8e;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-family: var(--font-family);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quick-access-buttons button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-5px);
+}
+
+.quick-access-buttons button:active {
+    transform: translateY(0);
+}
+
+/* Info Section (Less Prominent) */
+.info-section {
+    padding: 20px 10px;
+    /* Reduced padding */
+    background-color: var(--nav-background);
+    /* Match the navbar color */
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    /* Limit width for better focus */
+}
+
+.info-section h2 {
+    font-size: 1.5rem;
+    /* Smaller heading */
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    /* Match primary color */
+}
+
+.info-section .card {
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    /* Center cards */
+}
+
+.info-section .card img {
+    width: 60px;
+    /* Smaller icons */
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.info-section .card h3 {
+    font-size: 1.2rem;
+    /* Smaller heading */
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.info-section .card p {
+    font-size: 0.9rem;
+    /* Smaller text */
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.info-section .card-button {
+    padding: 8px 16px;
+    /* Smaller button */
+    font-size: 0.9rem;
+}
+
+/* Footer with Smaller Social Icons */
+footer {
+    background: linear-gradient(to right, #333, #1f1f1f);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    margin-top: 40px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--hover-color);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+.social-links img {
+    width: 24px;
+    /* Smaller icons */
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.social-links img:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Image Styles */
+.card img {
+    width: 100px;
+    /* Fixed width for logos */
+    height: 100px;
+    /* Fixed height for logos */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    /* Ensures the image fits within the dimensions */
+}
+
+/* Specific Adjustments for Different Sections */
+#movies .card img,
+#jeeneet .card img,
+#btech .card img,
+#info .card img {
+    width: 100px;
+    /* Consistent size for all logos */
+    height: 100px;
+    /* Consistent size for all logos */
 }

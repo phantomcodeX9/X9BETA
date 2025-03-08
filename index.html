@@ -19,6 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 
@@ -30,6 +31,7 @@
 
     <body>
         <!-- Top Ribbon -->
+        <!-- Top Ribbon -->
         <div class="top-ribbon">
             <div class="logo" style="color: goldenrod;">PirateHive-β</div>
             <div class="quick-access">
@@ -38,7 +40,10 @@
                 <a href="#btech">BE/B.Tech</a>
                 <a href="#info">Info</a>
             </div>
-            <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+            <div class="menu-container">
+                <a href="broken-link-report.html" class="caution-symbol">⚠️</a>
+                <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+            </div>
         </div>
 
         <!-- Sidebar -->
@@ -62,6 +67,13 @@
                 <input type="text" id="searchInput" placeholder="Search...">
             </div>
 
+            <div class="quick-access-buttons">
+                <button onclick="scrollToSection('movies')">🎬 Movies</button>
+                <button onclick="scrollToSection('jeeneet')">📚 JEE/NEET</button>
+                <button onclick="scrollToSection('btech')">💻 BE/B.Tech</button>
+                <button onclick="scrollToSection('info')">ℹ️ Info</button>
+            </div>
+
             <!-- Movies Section -->
             <section id="movies" class="content-section">
                 <h2>Entertainment</h2>
@@ -72,8 +84,8 @@
                     <div class="card">
                         <img src="newcin.webp" alt="Movie Icon">
                         <h3>Movies & TV Shows</h3>
-                        <p>Explore the latest movies and TV shows here.</p>
-                        <a href="https://freek.to/" target="_blank" rel="noopener noreferrer" class="card-button">Visit
+                        <p>Explore latest movies & TV shows.</p>
+                        <a href="https://freeky.to/" target="_blank" rel="noopener noreferrer" class="card-button">Visit
                             Site</a>
                     </div>
                     <div class="card">
@@ -97,15 +109,15 @@
                         <img src="movien4.webp" alt="Download Icon">
                         <h3>Everything(Livesport/Movies/
                             Multi-Lang)</h3>
-                        <p>Download movies for offline viewing.</p>
-                        <a href="https://rivestream.live/" target="_blank" rel="noopener noreferrer"
+                        <p>This will be updated soon for live sports & TV</p>
+                        <a href="https://rivestream.xyz/" target="_blank" rel="noopener noreferrer"
                             class="card-button">Visit
                             Site</a>
                     </div>
                     <div class="card">
                         <img src="doc.png" alt="Download Icon">
                         <h3>Documentaries</h3>
-                        <p>Download movies for offline viewing.</p>
+                        <p>For Documentaries Enthusiasts</p>
                         <a href="https://topdocumentaryfilms.com/" target="_blank" rel="noopener noreferrer"
                             class="card-button">Visit
                             Site</a>
@@ -113,7 +125,7 @@
                     <div class="card">
                         <img src="anime.webp" alt="Download Icon">
                         <h3>Anime</h3>
-                        <p>Download movies for offline viewing.</p>
+                        <p>I’ll take a potato chip... and eat it!</p>
                         <a href="https://www.miruro.tv/" target="_blank" rel="noopener noreferrer"
                             class="card-button">Visit
                             Site</a>
@@ -127,14 +139,14 @@
                     <div class="card">
                         <img src="shelf.webp" alt="Study Icon">
                         <h3>JEE / BITSAT</h3>
-                        <p>Access top institutes' paid resources for free.</p>
+                        <p>Better luck fighting for Placement if you survive this</p>
                         <a href="https://drive.google.com/drive/folders/1kt1fwIi2DkkcmF1Ly_ejq9_8U_KAy7Ea"
                             target="_blank" rel="noopener noreferrer" class="card-button">Access Now</a>
                     </div>
                     <div class="card">
                         <img src="bio.webp" alt="Test Icon">
                         <h3>NEET</h3>
-                        <p>Prepare with practice quizzes and tests.</p>
+                        <p>Please Hurry! 25lakh people are in QUE </p>
                         <a href="https://drive.google.com/drive/folders/15b8KvwVlRz1Renkqf8TfMdsoSB74me_i"
                             target="_blank" rel="noopener noreferrer" class="card-button">Start Quiz</a>
                     </div>
@@ -155,7 +167,8 @@
                     <div class="card">
                         <img src="Telegram.webp" alt="Test Icon">
                         <h3> Best Telegram channels/Video Lectures</h3>
-                        <p>Prepare with practice quizzes and tests.</p>
+                        <p>Join Our Channel & Check Pinned messages.If Didn't find what you were looking Fot Just drop a
+                            text on PRHIVE CHAT</p>
                         <a href="https://t.me/+bRom8OVaNMRjOTk1" target="_blank" rel="noopener noreferrer"
                             class="card-button">Start Quiz</a>
                     </div>
@@ -174,7 +187,8 @@
                     </div>
                     <div class="card">
                         <img src="Coding.webp" alt="Coding Icon">
-                        <h3>Coding Resources<img src="soon.gif.mp4" alt="Soon" class="icon"></h3>
+                        <h3>Coding Resources <img src="soon.gif.mp4" alt="Soon" class="icon"
+                                style="width: 25px; height: 25px; vertical-align: middle; margin-left: 4px;"></h3>
                         <p>Learn coding with comprehensive resources.</p>
                         <a href="coding.html" class="card-button">Explore</a>
                     </div>
@@ -193,19 +207,21 @@
                 </div>
             </section>
 
-            <!-- Info Section -->
-            <section id="info" class="content-section">
+            <!-- Info Section (Less Prominent) -->
+            <section id="info" class="content-section info-section">
                 <h2>Info</h2>
                 <div class="card-container">
+                    <!-- About Us Card -->
                     <div class="card">
-                        <img src="info-icon.png" alt="Info Icon">
+                        <img src="info.webp" alt="Info Icon">
                         <h3>About Us</h3>
-                        <p style="font-size: larger; color: aqua;"> Our mission is to provide free alternatives to
-                            various
-                            paid content available on the
+                        <p>Our mission is to provide free alternatives to various paid content available on the
                             internet. We do not own any of the content featured on this site. If you have any concerns
-                            or need to address an issue, please mail us at [Phantomx92@proton.me]</p>
+                            or need to address an issue, please mail us at <a href="mailto:Phantomx92@proton.me"
+                                style="color: var(--primary-color);">Phantomx92@proton.me</a>.</p>
                     </div>
+
+                    <!-- Join Telegram Card -->
                     <div class="card">
                         <img src="Telegram.webp" alt="Telegram Icon">
                         <h3>Join Telegram</h3>
@@ -213,20 +229,38 @@
                         <a href="https://t.me/+bRom8OVaNMRjOTk1" target="_blank" rel="noopener noreferrer"
                             class="card-button">Join Now</a>
                     </div>
-                    <div class="card">
-                        <h3 style="color: lightgreen;">"Part of phantomcodex9"</h3>
-                    </div>
                 </div>
             </section>
 
             <!-- Other Sections (JEE & NEET, BE/B.Tech, Cyber Security, Info) -->
             <!-- Add the same structure as the Movies section for other sections -->
         </main>
-
+        <!-- Add this to your HTML -->
+        <button id="backToTop" title="Go to top">🦇</button>
         <!-- Footer -->
+        <!-- Update the Footer -->
         <footer>
             <p>&copy; 2025 PirateHive - All rights reserved.</p>
             <p class="batman-easter-egg">The Dark Knight watches over this site.</p>
+
+            <!-- Contact Us and Social Links -->
+            <div class="footer-links">
+                <a href="mailto:Phantomx92@proton.me">Contact Us</a>
+                <a
+                    href="mailto:Phantomx92@proton.me?subject=Broken Link Report&body=Please provide the details of the broken link:">🚨
+                    Report Broken Link</a>
+                <div class="social-links">
+                    <a href="https://t.me/+bRom8OVaNMRjOTk1" target="_blank" rel="noopener noreferrer">
+                        <img src="telegram-icon.png" alt="Telegram">
+                    </a>
+                    <a href="https://www.instagram.com/your-instagram" target="_blank" rel="noopener noreferrer">
+                        <img src="instagram-icon.png" alt="Instagram">
+                    </a>
+                    <a href="https://discord.gg/XZ6P9ZDK9M" target="_blank" rel="noopener noreferrer">
+                        <img src="Discord.webp" alt="Discord">
+                    </a>
+                </div>
+            </div>
         </footer>
 
         <!-- JavaScript -->
@@ -280,12 +314,32 @@
                     konamiIndex = 0; // Reset if the sequence is broken
                 }
             });
+            // Add this to your JavaScript
+            window.addEventListener('scroll', () => {
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 200) {
+                    backToTop.style.display = 'block';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+
+            document.getElementById('backToTop').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
 
             console.log("%c🦇 I'm Batman. 🦇", "font-size: 20px; color: #000; background: #FFD700; padding: 10px; border-radius: 5px;");
             console.log("%cWelcome to PirateHive, where the Dark Knight keeps watch.", "font-size: 14px; color: #2c3e50;");
             console.log("%cRemember: 'It's not who I am underneath, but what I do that defines me.'", "font-size: 14px; color: #2c3e50; font-style: italic;");
 
         </script>
+
     </body>
 
 </html>

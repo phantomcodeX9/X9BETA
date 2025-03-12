@@ -3,17 +3,17 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7J2L93XLY0"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5WVB11YW2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-7J2L93XLY0');
+        gtag('config', 'G-C5WVB11YW2');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PirateHive - Confedential</title>
+    <title>PirateHive - Your Ultimate Destination</title>
     <link rel="icon" href="pirate.png" type="image/png">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
@@ -25,15 +25,16 @@
 
 
 <body>
+    <div class="aurora-background"></div>
     <div class="loading-screen" id="loadingScreen">
-        <img src="batman.png" alt="Batman Logo" class="batman-loader">
+        <img src="Batman.png" alt="Batman Logo" class="batman-loader">
     </div>
 
     <body>
         <!-- Top Ribbon -->
         <!-- Top Ribbon -->
         <div class="top-ribbon">
-            <div class="logo" style="color: goldenrod;">PirateHive-β</div>
+            <div class="logo" style="color: aqua;">PirateHive</div>
             <div class="quick-access">
                 <a href="#movies">Movies</a>
                 <a href="#jeeneet">JEE NEET</a>
@@ -49,7 +50,7 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="logo">PirateHive-βeta</div>
+                <div class="logo">PirateHive</div>
                 <button class="close-btn" onclick="toggleSidebar()">&times;</button>
             </div>
             <ul class="sidebar-links">
@@ -112,6 +113,14 @@
                         <p>This will be updated soon for live sports & TV</p>
                         <a href="https://rivestream.xyz/" target="_blank" rel="noopener noreferrer"
                             class="card-button">Visit
+                            Site</a>
+                    </div>
+                    <div class="card">
+                        <img src="sports.webp" alt="sports">
+                        <h3>Live Sports</h3>
+                        <p>Watch live sports </p>
+
+                        <a href="https://ppv.land/" target="_blank" rel="noopener noreferrer" class="card-button">Visit
                             Site</a>
                     </div>
                     <div class="card">
@@ -187,8 +196,7 @@
                     </div>
                     <div class="card">
                         <img src="Coding.webp" alt="Coding Icon">
-                        <h3>Coding Resources <img src="soon.gif.mp4" alt="Soon" class="icon"
-                                style="width: 25px; height: 25px; vertical-align: middle; margin-left: 4px;"></h3>
+                        <h3>Coding Resources</h3>
                         <p>Learn coding with comprehensive resources.</p>
                         <a href="coding.html" class="card-button">Explore</a>
                     </div>
@@ -243,7 +251,8 @@
                     <a href="https://t.me/+bRom8OVaNMRjOTk1" target="_blank" rel="noopener noreferrer">
                         <img src="Telegram.webp" alt="Telegram">
                     </a>
-                    <a href="https://www.instagram.com/phantomcodex9/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/phantomcodex9?igsh=ZTd0dnprd2t5Z21z" target="_blank"
+                        rel="noopener noreferrer">
                         <img src="insta.webp" alt="Instagram">
                     </a>
                     <a href="https://discord.gg/XZ6P9ZDK9M" target="_blank" rel="noopener noreferrer">
@@ -253,84 +262,7 @@
             </div>
             <p class="batman-easter-egg">The Dark Knight watches over this site.</p>
         </footer>
-
-        <!-- JavaScript -->
-        <script>
-            // Toggle Sidebar
-            function toggleSidebar() {
-                const sidebar = document.getElementById("sidebar");
-                sidebar.classList.toggle("active");
-            }
-
-            // Close Sidebar when clicking outside
-            document.addEventListener("click", function (event) {
-                const sidebar = document.getElementById("sidebar");
-                const menuBtn = document.querySelector(".menu-btn");
-                if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
-                    sidebar.classList.remove("active");
-                }
-            });
-
-            // Search Functionality
-            const searchInput = document.getElementById('searchInput');
-            const cards = document.querySelectorAll('.card');
-            if (searchInput && cards) {
-                searchInput.addEventListener('input', function () {
-                    const searchText = searchInput.value.toLowerCase();
-                    cards.forEach(card => {
-                        const cardText = card.textContent.toLowerCase();
-                        card.style.display = cardText.includes(searchText) ? 'block' : 'none';
-                    });
-                });
-            }
-
-            window.addEventListener("load", function () {
-                const loadingScreen = document.getElementById("loadingScreen");
-                loadingScreen.style.opacity = "0";
-                setTimeout(() => {
-                    loadingScreen.style.display = "none";
-                }, 500);
-            });
-            const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
-            let konamiIndex = 0;
-
-            document.addEventListener("keydown", (event) => {
-                if (event.key === konamiCode[konamiIndex]) {
-                    konamiIndex++;
-                    if (konamiIndex === konamiCode.length) {
-                        alert("🦇 You found the Dark Knight's secret! Redirecting to the Batcave... 🦇");
-                        window.location.href = "https://phantomcodex9.github.io/phantom/"; // Replace with your link
-                    }
-                } else {
-                    konamiIndex = 0; // Reset if the sequence is broken
-                }
-            });
-            // Add this to your JavaScript
-            window.addEventListener('scroll', () => {
-                const backToTop = document.getElementById('backToTop');
-                if (window.scrollY > 200) {
-                    backToTop.style.display = 'block';
-                } else {
-                    backToTop.style.display = 'none';
-                }
-            });
-
-            document.getElementById('backToTop').addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            function scrollToSection(sectionId) {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-
-            console.log("%c🦇 I'm Batman. 🦇", "font-size: 20px; color: #000; background: #FFD700; padding: 10px; border-radius: 5px;");
-            console.log("%cWelcome to PirateHive, where the Dark Knight keeps watch.", "font-size: 14px; color: #2c3e50;");
-            console.log("%cRemember: 'It's not who I am underneath, but what I do that defines me.'", "font-size: 14px; color: #2c3e50; font-style: italic;");
-
-        </script>
-
+        <script src="script.js"></script>
     </body>
 
 </html>

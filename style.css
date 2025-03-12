@@ -11,6 +11,27 @@
     --hover-color: #512da8;
 }
 
+/* Add this to your CSS */
+body {
+    background: linear-gradient(-45deg, #121212, #1f1f1f, #512da8, #60d1c4);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .card:hover {
     border: 2px solid #309b8e;
     /* Teal border */
@@ -365,12 +386,13 @@ footer:hover .batman-easter-egg {
 }
 
 /* Add this to your CSS */
+/* Add this to your CSS */
 #backToTop {
     display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--primary-color);
+    background-color: #60d1c4;
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -379,12 +401,12 @@ footer:hover .batman-easter-egg {
     font-size: 1.5em;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-    z-index: 3000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #backToTop:hover {
-    background-color: var(--hover-color);
+    background-color: #512da8;
+    transform: scale(1.1);
 }
 
 /* Quick Access Buttons */
@@ -490,6 +512,7 @@ footer:hover .batman-easter-egg {
 }
 
 /* Footer with Smaller Social Icons */
+/* Add this to your CSS */
 footer {
     background: linear-gradient(to right, #333, #1f1f1f);
     color: #fff;
@@ -497,6 +520,19 @@ footer {
     padding: 10px;
     position: relative;
     margin-top: 40px;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .footer-links {
@@ -568,4 +604,30 @@ footer {
     /* Consistent size for all logos */
     height: 100px;
     /* Consistent size for all logos */
+}
+
+/* Aurora Background */
+.aurora-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Place it behind other content */
+    background: radial-gradient(circle at 50% 50%, #000, #0a2e38, #000);
+    overflow: hidden;
+}
+
+/* Aurora Layers */
+.aurora-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x) var(--y), rgba(96, 209, 196, 0.3), transparent);
+    opacity: 0.8;
+    pointer-events: none;
+    /* Ensure the layers don't block cursor interaction */
 }

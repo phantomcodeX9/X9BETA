@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirate Hive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero input {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero input::placeholder {
+            font-style: italic;
+        }
+
+        /* Subjects Section */
+        .subjects {
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .subject-card h3 {
+            padding: 15px;
+            background: #3b82f6;
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .book-list {
+            padding: 15px;
+            display: none;
+        }
+
+        .book-list.visible {
+            display: block;
+        }
+
+        .book-item a {
+            color: #1e3a8a;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .book-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #3b82f6;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #93c5fd;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Welcome to Pirate Hive</h1>
+        <p>Discover, Learn, contribute</p>
+        <input type="text" placeholder="Search for books or subjects...">
+    </header>
+
+    <!-- Subjects Section -->
+    <section class="subjects">
+        <div class="subject-card" onclick="toggleBooks(this)">
+            <h3>Mathematics</h3>
+            <div class="book-list">
+                <div class="book-item"><a href="#">Algebra for Beginners</a></div>
+                <div class="book-item"><a href="#">Advanced Calculus</a></div>
+                <div class="book-item"><a href="#">Linear Algebra</a></div>
+            </div>
+        </div>
+        <div class="subject-card" onclick="toggleBooks(this)">
+            <h3>Science</h3>
+            <div class="book-list">
+                <div class="book-item"><a href="#">Physics Fundamentals</a></div>
+                <div class="book-item"><a href="#">Organic Chemistry</a></div>
+                <div class="book-item"><a href="#">Astronomy 101</a></div>
+            </div>
+        </div>
+        <!-- Add more cards as needed -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Join Our Community:</p>
+        <a href="https://discord.com" target="_blank">Discord</a>
+        <a href="https://telegram.org" target="_blank">Telegram</a>
+        <p>&copy; 2024 Pirate Hive. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleBooks(card) {
+            const bookList = card.querySelector('.book-list');
+            bookList.classList.toggle('visible');
+        }
+    </script>
+</body>
+
+</html>

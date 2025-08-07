@@ -231,6 +231,100 @@
             padding-left: 10px;
         }
 
+        /* Add these to your existing CSS */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            padding: 15px 25px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--cyber-blue);
+            border-radius: 5px;
+            color: var(--text-primary);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 80%;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .notification.info {
+            border-color: var(--cyber-blue);
+        }
+
+        .notification.warning {
+            border-color: var(--accent-red);
+        }
+
+        .notification.success {
+            border-color: var(--accent-green);
+        }
+
+        .notification-icon {
+            font-size: 1.2rem;
+        }
+
+        #clearSearch {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+        }
+
+        #clearSearch:hover {
+            color: var(--cyber-blue);
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: var(--darker-bg);
+            color: var(--text-primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid var(--cyber-blue);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes batmanFlash {
+
+            0%,
+            100% {
+                background-color: var(--dark-bg);
+            }
+
+            50% {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
+
         /* Main Content */
         main {
             padding: 30px;
@@ -804,8 +898,8 @@
                     <div class="card-content">
                         <h3 class="cyber-font">NEET PREP</h3>
                         <p>Medical entrance exam materials and practice tests.</p>
-                        <a href="https://drive.google.com/drive/folders/18Tx5zilRWobRbrRT_jRgIYQz_oP5tIOG"
-                            target="_blank" rel="noopener noreferrer" class="card-button">ACCESS DATABASE</a>
+                        <a href="neet.html" target="_blank" rel="noopener noreferrer" class="card-button">ACCESS
+                            DATABASE</a>
                     </div>
                 </div>
                 <div class="card">
@@ -935,7 +1029,218 @@
         <p class="batman-easter-egg">SYSTEM PROTECTED BY DARK KNIGHT PROTOCOLS</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js">// Loading screen
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(function () {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Sidebar toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function (event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuBtn = document.querySelector('.menu-btn');
+
+            if (sidebar.classList.contains('active') {
+                if (!sidebar.contains(event.target) && event.target !== menuBtn) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Close sidebar if open
+            document.getElementById('sidebar').classList.remove('active');
+        }
+
+        // Back to top button
+        window.addEventListener('scroll', function () {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            let visibleCards = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
+
+                if (searchTerm.length === 0 || title.includes(searchTerm) || description.includes(searchTerm) || keywords.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    visibleCards++;
+
+                    // Highlight effect
+                    if (searchTerm.length > 0) {
+                        card.style.boxShadow = '0 0 20px var(--cyber-blue)';
+                        setTimeout(() => {
+                            card.style.boxShadow = '';
+                        }, 1000);
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show "no results" message if needed
+            const noResults = document.getElementById('noResults');
+            if (visibleCards === 0 && searchTerm.length > 0) {
+                if (!noResults) {
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.id = 'noResults';
+                    noResultsDiv.className = 'terminal';
+                    noResultsDiv.innerHTML = `
+                <span class="terminal-prompt">> SEARCH ERROR:</span> 
+                <span style="color: var(--accent-red);">No matching results found for "${searchTerm}"</span>
+                <span class="terminal-cursor"></span>
+            `;
+                    noResultsDiv.style.marginTop = '20px';
+                    document.querySelector('.content-section').appendChild(noResultsDiv);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+
+            // Show/hide clear button
+            document.getElementById('clearSearch').style.display = searchTerm.length > 0 ? 'block' : 'none';
+        });
+
+        // Clear search button
+        document.getElementById('clearSearch').addEventListener('click', function () {
+            document.getElementById('searchInput').value = '';
+            this.style.display = 'none';
+            document.getElementById('searchInput').dispatchEvent(new Event('input'));
+        });
+
+        // Keyboard shortcut for search (Ctrl+/)
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.key === '/') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+        <span class="notification-icon">${type === 'info' ? 'ℹ️' : type === 'warning' ? '⚠️' : '✅'}</span>
+        <span class="notification-message">${message}</span>
+    `;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 500);
+            }, 3000);
+        }
+
+        // External link loading indicator
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Don't show loading for internal links
+                if (!this.href.includes(window.location.hostname)) {
+                    document.getElementById('loadingScreen').style.display = 'flex';
+                    document.getElementById('loadingScreen').style.opacity = '1';
+                }
+            });
+        });
+
+        // Easter egg for Batman fans
+        let batmanSequence = '';
+        document.addEventListener('keydown', function (e) {
+            batmanSequence += e.key.toLowerCase();
+            if (batmanSequence.length > 10) {
+                batmanSequence = batmanSequence.slice(-10);
+            }
+
+            if (batmanSequence.includes('batman')) {
+                showNotification('Dark Knight protocol activated!', 'success');
+                document.body.style.animation = 'batmanFlash 0.5s 3';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 1500);
+                batmanSequence = '';
+            }
+        });
+
+        // Initialize tooltips
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            element.addEventListener('mouseenter', function () {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.textContent = this.dataset.tooltip;
+                document.body.appendChild(tooltip);
+
+                const rect = this.getBoundingClientRect();
+                tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
+                tooltip.style.top = `${rect.top - tooltip.offsetHeight - 5}px`;
+
+                this._tooltip = tooltip;
+            });
+
+            element.addEventListener('mouseleave', function () {
+                if (this._tooltip) {
+                    this._tooltip.remove();
+                }
+            });
+        });
+
+        // Add some sample notifications on page actions
+        document.querySelectorAll('.card-button').forEach(button => {
+            button.addEventListener('click', function () {
+                showNotification(`Accessing ${this.textContent.trim()} portal...`, 'info');
+            });
+        });
+
+        // Add animation to cards when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'cardAppear 0.5s forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });</script>
 </body>
 
 </html>

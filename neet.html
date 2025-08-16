@@ -73,29 +73,6 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg,
-                    var(--ecg-red) 0%,
-                    var(--ecg-red) 10%,
-                    transparent 10%,
-                    transparent 20%,
-                    var(--ecg-red) 20%,
-                    var(--ecg-red) 30%,
-                    transparent 30%,
-                    transparent 40%,
-                    var(--ecg-red) 40%,
-                    var(--ecg-red) 50%,
-                    transparent 50%,
-                    transparent 60%,
-                    var(--ecg-red) 60%,
-                    var(--ecg-red) 70%,
-                    transparent 70%,
-                    transparent 80%,
-                    var(--ecg-red) 80%,
-                    var(--ecg-red) 90%,
-                    transparent 90%,
-                    transparent 100%);
-            background-size: 200% 100%;
-            animation: ecg 3s linear infinite;
         }
 
         iframe {
@@ -202,27 +179,6 @@
             color: var(--hospital-blue);
         }
 
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-
-            25% {
-                transform: scale(1.1);
-            }
-
-            50% {
-                transform: scale(1);
-            }
-
-            75% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
 
         @keyframes ecg {
             0% {
@@ -290,7 +246,7 @@
     <div class="hospital-header text-center">
         <div class="container position-relative">
             <i class="bi bi-heart-pulse stethoscope-icon"></i>
-            <h1>NEET MEDICAL VAULT</h1>
+            <h1>NEET RESOURCES</h1>
             <p class="lead">Comprehensive Resources for Future Doctors</p>
         </div>
     </div>
@@ -325,7 +281,7 @@
             <a href="https://t.me/+bRom8OVaNMRjOTk1" class="hospital-btn" target="_blank">
                 <i class="bi bi-telegram"></i> Study Group
             </a>
-            <a href="brokenlink.html" class="hospital-btn" data-bs-toggle="modal" data-bs-target="#reportModal">
+            <a href="brokenlink.html" class="hospital-btn">
                 <i class="bi bi-exclamation-triangle"></i> Report Issue
             </a>
             <a href="index.html" class="hospital-btn">
@@ -334,39 +290,7 @@
         </div>
     </div>
 
-    <!-- Report Modal -->
-    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-hospital-blue text-white">
-                    <h5 class="modal-title" id="reportModalLabel"><i class="bi bi-exclamation-triangle-fill"></i> Report
-                        Resource Issue</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="reportForm">
-                        <div class="mb-3">
-                            <label for="brokenUrl" class="form-label">Problematic Resource</label>
-                            <input type="text" class="form-control" id="brokenUrl"
-                                placeholder="Paste link or describe location">
-                        </div>
-                        <div class="mb-3">
-                            <label for="issueDetails" class="form-label">Symptoms</label>
-                            <textarea class="form-control" id="issueDetails" rows="3"
-                                placeholder="Describe the issue you encountered"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-hospital" id="submitReport">
-                        <i class="bi bi-send-fill"></i> Submit Report
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -384,31 +308,7 @@
         });
 
         // Report form handling
-        document.getElementById('submitReport').addEventListener('click', function () {
-            const brokenUrl = document.getElementById('brokenUrl').value;
-            const issueDetails = document.getElementById('issueDetails').value;
 
-            if (!brokenUrl || !issueDetails) {
-                alert('Please describe the resource issue and its location');
-                return;
-            }
-
-            // In a real implementation, you would send this data to your server
-            console.log('Resource Issue Report:', {
-                url: brokenUrl,
-                details: issueDetails
-            });
-
-            // Show confirmation
-            alert('Thank you for your report! We will review this issue soon.');
-
-            // Close the modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById('reportModal'));
-            modal.hide();
-
-            // Reset form
-            document.getElementById('reportForm').reset();
-        });
     </script>
 </body>
 

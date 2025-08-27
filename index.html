@@ -1727,15 +1727,6 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        $$('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                const id = tab.dataset.tab;
-                $$('.tab').forEach(t => t.classList.remove('active'));
-                $$('.tab-content').forEach(c => c.classList.remove('active'));
-                tab.classList.add('active');
-                $(`#${id}`).classList.add('active');   // <- no "-tab" suffix
-            });
-        });
 
     </script>
 </body>

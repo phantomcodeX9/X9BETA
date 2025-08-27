@@ -1040,7 +1040,84 @@
             color: var(--text-muted);
             font-size: .75rem
         }
+
+        /* --- glowing frame around the tab-bar --- */
+        .tabs-header {
+            padding: .8rem;
+            /* space between frame and buttons   */
+            border-radius: 50px;
+            /* pill-shaped outline               */
+            background: rgba(0, 0, 0, .35);
+            /* subtle dark backdrop              */
+            border: 2px solid transparent;
+            /* start invisible                   */
+            box-shadow:
+                0 0 4px var(--primary),
+                0 0 8px var(--primary),
+                0 0 16px var(--primary),
+                0 0 32px var(--primary);
+            animation: breathe 2.5s ease-in-out infinite;
+        }
+
+        /* gentle pulsing glow */
+        @keyframes breathe {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 4px var(--primary),
+                    0 0 8px var(--primary),
+                    0 0 16px var(--primary),
+                    0 0 32px var(--primary);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 6px var(--primary),
+                    0 0 12px var(--primary),
+                    0 0 24px var(--primary),
+                    0 0 48px var(--primary);
+            }
+        }
+
+        /* --------------  TAB BUTTONS THAT STAND OUT  -------------- */
+        .tabs-header .tab {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+
+        .tabs-header .tab.active {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow:
+                0 0 8px var(--primary),
+                0 0 16px var(--primary),
+                0 0 24px var(--primary);
+            border-color: var(--primary);
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 8px var(--primary), 0 0 16px var(--primary);
+            }
+
+            50% {
+                box-shadow: 0 0 12px var(--primary), 0 0 24px var(--primary);
+            }
+
+            100% {
+                box-shadow: 0 0 8px var(--primary), 0 0 16px var(--primary);
+            }
+        }
+
+        /* --------------  NEW TABS LAYOUT  -------------- */
+        .tab-content .card-grid {
+            /* inherits existing grid rules – nothing else needed */
+        }
     </style>
+
 </head>
 
 <body>
@@ -1115,6 +1192,8 @@
                 <button class="tab active" data-tab="movies"><i class="fas fa-film"></i> Entertainment</button>
                 <button class="tab" data-tab="jeeneet"><i class="fas fa-book"></i> JEE/NEET</button>
                 <button class="tab" data-tab="btech"><i class="fas fa-laptop-code"></i> BE/B.Tech</button>
+                <button class="tab" data-tab="ebooks"><i class="fas fa-book-open"></i> E-Books</button>
+                <button class="tab" data-tab="games"><i class="fas fa-gamepad"></i> Games</button>
                 <button class="tab" data-tab="info"><i class="fas fa-info-circle"></i> Info</button>
             </div>
 
@@ -1306,6 +1385,85 @@
                     </div>
                 </div>
             </div>
+            <!-- NEW: E-Books Tab -->
+            <div class="tab-content" id="ebooks-tab">
+                <div class="notice-box">
+                    <a href="#"><i class="fas fa-exclamation-circle"></i>
+                        <strong>Everything from fiction to university texts – no paid walls!</strong></a>
+                </div>
+                <div class="card-grid">
+                                        <div class="card"><span class="card-badge">Anna's</span>
+                        <div class="card-icon">📖</div>
+                        <h3 class="card-title">Anna's Library</h3>
+                        <p class="card-description">The Godfather Of books Piracy</p>
+                        <div class="card-footer">
+                            <a href="https://annas-archive.org/" target="_blank" class="card-button">Visit <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <div class="card-meta"><span><i class="fas fa-eye"></i> 9.8K</span></div>
+                        </div>
+                    </div>
+                    <div class="card"><span class="card-badge">LibGen</span>
+                        <div class="card-icon">📖</div>
+                        <h3 class="card-title">Library Genesis</h3>
+                        <p class="card-description">Millions of books & scientific articles, direct download links.</p>
+                        <div class="card-footer">
+                            <a href="https://libgen.gs/" target="_blank" class="card-button">Visit <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <div class="card-meta"><span><i class="fas fa-eye"></i> 9.8K</span></div>
+                        </div>
+                    </div>
+                    <div class="card"><span class="card-badge">Sci-Fi</span>
+                        <div class="card-icon">🚀</div>
+                        <h3 class="card-title">Z-Library Mirror</h3>
+                        <p class="card-description">Fiction, non-fiction, comics – fastest mirrors updated daily.</p>
+                        <div class="card-footer">
+                            <a href="https://z-lib.gd/" target="_blank" class="card-button">Visit <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <div class="card-meta"><span><i class="fas fa-eye"></i> 7.3K</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW: Games Tab -->
+            <div class="tab-content" id="games-tab">
+                <div class="notice-box">
+                    <a href="#"><i class="fas fa-exclamation-circle"></i>
+                        <strong>Pre-installed, repacks & indie titles – enjoy!</strong></a>
+                </div>
+                <div class="card-grid">
+                    <div class="card"><span class="card-badge">FitGirl</span>
+                        <div class="card-icon">🎮</div>
+                        <h3 class="card-title">FitGirl Repacks</h3>
+                        <p class="card-description">Compressed repacks of the latest AAA & indie games.</p>
+                        <div class="card-footer">
+                            <a href="https://fitgirl-repacks.site/" target="_blank" class="card-button">Visit <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <div class="card-meta"><span><i class="fas fa-eye"></i> 12.4K</span></div>
+                        </div>
+                    </div>
+                    <div class="card"><span class="card-badge">SteamRip</span>
+                        <div class="card-icon">🕹️</div>
+                        <h3 class="card-title">SteamUnlocked</h3>
+                        <p class="card-description">Pre-installed Steam games – download, unzip & play.</p>
+                        <div class="card-footer">
+                            <a href="https://steamunlocked.net/" target="_blank" class="card-button">Visit <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <div class="card-meta"><span><i class="fas fa-eye"></i> 9.9K</span></div>
+                        </div>
+                    </div>
+                    <div class="card"><span class="card-badge">Emulation</span>
+                        <div class="card-icon">🕹️</div>
+                        <h3 class="card-title">ROMs & Emulators</h3>
+                        <p class="card-description">Retro classics for console emulators (PS2, Switch, PSP, etc.).</p>
+                        <div class="card-footer">
+                            <a href="https://romsfun.com/" target="_blank" class="card-button">Visit <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <div class="card-meta"><span><i class="fas fa-eye"></i> 6.7K</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Info Tab -->
             <div class="tab-content" id="info-tab">
@@ -1335,25 +1493,25 @@
     <!-- Stats & Features (unchanged) -->
     <section class="stats-section">
         <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-download"></i></div>
-                <div class="stat-number" data-count="12543">0</div>
-                <div class="stat-label">Resources Downloaded</div>
-            </div>
+<div class="stat-card">
+    <div class="stat-icon"><i class="fab fa-github"></i></div>
+    <div class="stat-number" data-count="171">0</div>
+    <div class="stat-label">Commits & Changes</div>
+</div>
             <div class="stat-card">
                 <div class="stat-icon"><i class="fas fa-users"></i></div>
-                <div class="stat-number" data-count="8562">0</div>
-                <div class="stat-label">Active Users</div>
+                <div class="stat-number" data-count="894953">0</div>
+                <div class="stat-label">Users (updated every week)</div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-film"></i></div>
-                <div class="stat-number" data-count="2741">0</div>
-                <div class="stat-label">Movies Available</div>
+                <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                <div class="stat-number" data-count="109">0</div>
+                <div class="stat-label">Countries Reached</div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-book"></i></div>
-                <div class="stat-number" data-count="3589">0</div>
-                <div class="stat-label">Educational Resources</div>
+                <div class="stat-icon"><i class="fab fa-telegram"></i></div>
+                <div class="stat-number" data-count="1846">0</div>
+                <div class="stat-label">Telegram Family</div>
             </div>
         </div>
     </section>
@@ -1480,6 +1638,14 @@
             { title: 'Coding Resources', url: 'https://t.me/codingknights', keywords: 'coding programming resources' },
             { title: 'Discord Community', url: 'https://discord.gg/XZ6P9ZDK9M', keywords: 'discord chat community help' }
         ];
+        searchIndex.push(
+            { title: 'Library Genesis', url: 'https://libgen.is/', keywords: 'ebooks libgen books academic' },
+            { title: 'Z-Library Mirror', url: 'https://singlelogin.re/', keywords: 'ebooks fiction novels zlibrary' },
+            { title: 'Audiobook Bay', url: 'https://audiobookbay.li/', keywords: 'audiobooks mp3 audio' },
+            { title: 'FitGirl Repacks', url: 'https://fitgirl-repacks.site/', keywords: 'games pc repacks fitgirl' },
+            { title: 'SteamUnlocked', url: 'https://steamunlocked.net/', keywords: 'games preinstalled steam' },
+            { title: 'ROMs & Emulators', url: 'https://romsfun.com/', keywords: 'games roms emulation retro' }
+        );
 
         $('#searchButton').addEventListener('click', () => {
             $('#searchOverlay').classList.add('active');
